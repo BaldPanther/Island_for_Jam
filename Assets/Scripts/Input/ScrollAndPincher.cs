@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-class ScrollAndPinch : MonoBehaviour
+class ScrollAndPincher : MonoBehaviour
 {
     [SerializeField] private Camera _camera;
     [SerializeField] private Terrain _terrain;
