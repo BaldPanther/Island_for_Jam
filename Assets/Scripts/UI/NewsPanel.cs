@@ -20,7 +20,7 @@ public class NewsPanel : MonoBehaviour
         News.ShowNews -= OnShowNews;
     }
 
-    private void Start()
+    private void Awake()
     {
         _panelsPool = new GameObject[_maxPanelsCount];
         Initialize(_newsPanelPrefab);

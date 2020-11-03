@@ -814,7 +814,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2c5ed99b6adb3e409ba9527d43d23e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _yellow: {r: 1, g: 1, b: 0, a: 0.5}
   _red: {r: 1, g: 0, b: 0, a: 0.5}
   _green: {r: 0, g: 1, b: 0, a: 0.5}
 --- !u!114 &91576908
@@ -831,6 +830,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _zoneSize: {x: 128, y: 163}
   _gredSize: {x: 1, y: 1}
+  _offsetDown: 0.4
+  _offsetUp: 0.4
   "_installation\u0421hance": 5
   _container: {fileID: 230609312}
   _rotate: 1
@@ -4259,7 +4260,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.042826097, y: 0.80859023}
   m_AnchorMax: {x: 0.95857495, y: 0.95600003}
-  m_AnchoredPosition: {x: -0.48306274, y: 1}
+  m_AnchoredPosition: {x: -0.48309326, y: 1}
   m_SizeDelta: {x: -0.6412964, y: -0.22155762}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &519455290
@@ -4428,6 +4429,108 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77cd3f33d689bb24d81aee94d76286b8, type: 3}
+--- !u!1 &539623169 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6760951373041587735, guid: d3a3494bc3174b344bf3b0cde0a2d950,
+    type: 3}
+  m_PrefabInstance: {fileID: 6760951372888963942}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &539623170
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 539623169}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 01401fce37c838543aa3f74a87cbc964, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.15
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &545579218
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12063,8 +12166,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b67640d4c1fe2bf42aae4029800e4182, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _materialForWin: 0
   _menuExitScreen: {fileID: 0}
   _gameOverScreen: {fileID: 0}
+  _introScreen: {fileID: 0}
+  _winScreen: {fileID: 0}
+  _daysPassedText1: {fileID: 0}
+  _daysPassedText2: {fileID: 0}
 --- !u!1001 &1534036336
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13432,6 +13540,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _zoneSize: {x: 137, y: 229}
   _gredSize: {x: 5, y: 5}
+  _offsetDown: 0.4
+  _offsetUp: 0.4
   "_installation\u0421hance": 30
   _container: {fileID: 807535226}
   _rotate: 1
@@ -13471,7 +13581,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2c5ed99b6adb3e409ba9527d43d23e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _yellow: {r: 1, g: 1, b: 0, a: 0.5}
   _red: {r: 1, g: 0, b: 0, a: 0.5}
   _green: {r: 0, g: 1, b: 0, a: 0.5}
 --- !u!1001 &1720686171

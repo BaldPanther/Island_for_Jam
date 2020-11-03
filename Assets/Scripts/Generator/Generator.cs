@@ -6,6 +6,8 @@ public class Generator : MonoBehaviour
     [SerializeField] private Vector2Int _zoneSize;
     [SerializeField] private Vector2Int _gredSize;
 
+    [SerializeField] private float _offsetDown = 0.4f;
+    [SerializeField] private float _offsetUp = 0.4f;
     [SerializeField] private int _installationСhance = 5;
 
     [SerializeField] private GameObject _container;
@@ -16,6 +18,8 @@ public class Generator : MonoBehaviour
 
     public Vector2Int ZoneSize => _zoneSize;
     public Vector2Int GredSize => _gredSize;
+    public float OffsetDown => _offsetDown;
+    public float OffsetUp => _offsetUp;
 
     private void Start()
     {
@@ -39,26 +43,14 @@ public class Generator : MonoBehaviour
     private void GroundCheck(float x, float y)
     {
         Vector3 position = new Vector3(x, transform.position.y, y);
-        bool IsGround = false;
-        bool IsFree = true;
 
-        int maxColliders = 5;
-        Collider[] hitColliders = new Collider[maxColliders];
-        int numColliders = Physics.OverlapBoxNonAlloc(position, new Vector3(0.4f, 0.4f, 0.4f), hitColliders);
+        Vector3 offsetPosition = new Vector3(position.x, position.y + _offsetUp, position.z);
+        Vector3 endPosition = new Vector3(position.x, position.y - _offsetDown, position.z);
 
-        for (int i = 0; i < numColliders; i++)
+        if (Physics.Linecast(offsetPosition, endPosition, out RaycastHit hit))
         {
-            if (hitColliders[i].TryGetComponent(out Ground _))
-            {
-                IsGround = true;
-            }
-
-            if (hitColliders[i].TryGetComponent(out GeneratedUnit unit))
-                IsFree = false;
-        }
-        if (IsGround && IsFree)
-        {
-            PlaceObject(position);
+            if (hit.collider.TryGetComponent(out Ground _))
+                PlaceObject(hit.point);
         }
     }
 
