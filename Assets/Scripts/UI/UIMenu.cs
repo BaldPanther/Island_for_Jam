@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class UIMenu : MonoBehaviour
 {
+    [SerializeField] private int _materialForWin;
+
     [SerializeField] private GameObject _menuExitScreen; 
     [SerializeField] private GameObject _gameOverScreen;
     [SerializeField] private GameObject _introScreen;
@@ -74,7 +76,7 @@ public class UIMenu : MonoBehaviour
 
     private void OnMaterialsChanged(int value)
     {
-        if (value >= 10000)
+        if (value >= _materialForWin)
             OpenWinScreen();
     }
 }

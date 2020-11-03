@@ -2,7 +2,7 @@
 using UnityEngine.EventSystems;
 
 
-public class InputController : MonoBehaviour
+public class PlayerInput : MonoBehaviour
 {
     [SerializeField] private GameObject _interactivObjectPanel;
     [SerializeField] private float _cameraMoveSpeed = 30;

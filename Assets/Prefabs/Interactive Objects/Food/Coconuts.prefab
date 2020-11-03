@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Label: "\u041A\u043E\u043A\u043E\u0441\u044B"
-  ResourcesAmount: 50
+  ResourcesAmount: 25
   DamageInSecond: 0
   IsFound: 0
 --- !u!136 &4445875770462658536

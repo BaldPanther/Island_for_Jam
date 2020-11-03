@@ -12,10 +12,6 @@ public class PathCreater : MonoBehaviour
     private void Awake()
     {
         _home = FindObjectOfType<Home>();
-    }
-
-    private void Start()
-    {
         pathToTargetNavMesh = new NavMeshPath();
         pathToHomeNavMesh = new NavMeshPath();
     }
